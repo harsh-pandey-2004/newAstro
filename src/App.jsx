@@ -11,6 +11,8 @@ import FreeKundali from "./Pages/FreeKundali";
 import VastuMaking from "./Pages/VastuMaking";
 import AstroCouncellor from "./components/HomePage/AstroCouncellorSection";
 import AstrologerCouncellorPage from "./Pages/AstroCouncellor";
+import AstrologerProfile from "./Pages/IndividualProfile";
+import Prasaad from "./Pages/Prasaad";
 
 function App() {
   return (
@@ -22,10 +24,15 @@ function App() {
           <Route path="/book-pandit" element={<BookPandit />} />
           <Route path="/book-pooja" element={<BookPooja />} />
           <Route path="/astro-page" element={<AstrologerPage />} />
-          <Route path="/astrocouncelor-page" element={<AstrologerCouncellorPage />} />
+          <Route
+            path="/astrocouncelor-page"
+            element={<AstrologerCouncellorPage />}
+          />
           <Route path="/free-matching" element={<FreeKundali />} />
           <Route path="/kundali-matching" element={<KundaliMatching />} />
           <Route path="/vastu-making" element={<VastuMaking />} />
+          <Route path="/astrologer/:id" element={<AstrologerProfile />} />
+          <Route path="/prasad" element={<Prasaad />} />
         </Routes>
         <Footer />
       </div>

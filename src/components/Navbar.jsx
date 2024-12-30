@@ -29,7 +29,7 @@ const Navbar = () => {
     >
       <div className="relative container mx-auto flex justify-between items-center px-6 py-3">
         {/* Logo */}
-        <div className="flex items-center space-x-2">
+        <Link to="/" className="flex items-center space-x-2">
           <img
             src="/path/to/logo.png"
             alt="Astro Captain Logo"
@@ -42,7 +42,7 @@ const Navbar = () => {
           >
             Astro Captain
           </span>
-        </div>
+        </Link>
 
         {/* Navigation Links */}
         <ul className="hidden md:flex space-x-6 items-center text-sm">
