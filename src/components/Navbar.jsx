@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +16,8 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const isActive = (path) => location.pathname === path;
 
   return (
     <nav
@@ -42,58 +46,77 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <ul className="hidden md:flex space-x-6 items-center text-sm">
-          <li className="group relative">
-            <a href="#" className="hover:text-yellow-500">
+          <li>
+            <Link
+              to="/astro-page"
+              className={`hover:text-yellow-500 ${
+                isActive("/astro-page") ? "text-yellow-500 font-bold" : ""
+              }`}
+            >
               Astrologer
-            </a>
-            {/* Dropdown */}
-            <div className="absolute left-0 mt-2 hidden group-hover:block bg-black border border-gray-700 rounded shadow-lg">
-              <a href="#" className="block px-4 py-2 hover:bg-gray-800">
-                Option 1
-              </a>
-              <a href="#" className="block px-4 py-2 hover:bg-gray-800">
-                Option 2
-              </a>
-            </div>
+            </Link>
           </li>
           <li>
-            <a href="#" className="hover:text-yellow-500">
+            <Link
+              to="/book-pandit"
+              className={`hover:text-yellow-500 ${
+                isActive("/book-pandit") ? "text-yellow-500 font-bold" : ""
+              }`}
+            >
               Book Pandit
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="hover:text-yellow-500">
+            <Link
+              to="/book-pooja"
+              className={`hover:text-yellow-500 ${
+                isActive("/book-pooja") ? "text-yellow-500 font-bold" : ""
+              }`}
+            >
               Book Pooja
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="hover:text-yellow-500">
+            <Link
+              to="/prasad"
+              className={`hover:text-yellow-500 ${
+                isActive("/prasad") ? "text-yellow-500 font-bold" : ""
+              }`}
+            >
               Prasad
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="hover:text-yellow-500">
+            <Link
+              to="/astrocouncelor-page"
+              className={`hover:text-yellow-500 ${
+                isActive("/astrocouncelor-page")
+                  ? "text-yellow-500 font-bold"
+                  : ""
+              }`}
+            >
+              AstroCounsellor
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/free-matching"
+              className={`hover:text-yellow-500 ${
+                isActive("/free-matching") ? "text-yellow-500 font-bold" : ""
+              }`}
+            >
               Kundali
-            </a>
-          </li>
-          <li className="group relative">
-            <a href="#" className="hover:text-yellow-500">
-              Astro-Counsel
-            </a>
-            {/* Dropdown */}
-            <div className="absolute left-0 mt-2 hidden group-hover:block bg-black border border-gray-700 rounded shadow-lg">
-              <a href="#" className="block px-4 py-2 hover:bg-gray-800">
-                Option 1
-              </a>
-              <a href="#" className="block px-4 py-2 hover:bg-gray-800">
-                Option 2
-              </a>
-            </div>
+            </Link>
           </li>
           <li>
-            <a href="#" className="hover:text-yellow-500">
+            <Link
+              to="/vastu-making"
+              className={`hover:text-yellow-500 ${
+                isActive("/vastu-making") ? "text-yellow-500 font-bold" : ""
+              }`}
+            >
               Vastu Making
-            </a>
+            </Link>
           </li>
         </ul>
 
