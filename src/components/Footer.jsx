@@ -18,10 +18,11 @@ const Footer = () => {
               <button className="bg-black text-white py-2 px-6 rounded-md hover:bg-gray-800 shadow-lg">
                 Register
               </button>
+              
               <button className="bg-black text-white py-2 px-6 rounded-md hover:bg-gray-800 shadow-lg">
                 Appoint
               </button>
-              
+
             </div>
           </div>
 
