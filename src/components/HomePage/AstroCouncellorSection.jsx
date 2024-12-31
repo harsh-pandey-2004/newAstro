@@ -1,11 +1,12 @@
 import React from 'react';
+import pandit from '../../assets/image/pandit.png';
 import { Star } from 'lucide-react';
 
 const AstrologerCard = ({ name, language, experience, specialization }) => (
   <div className="bg-white p-6 rounded-lg shadow-lg text-center relative">
     <div className="w-24 h-24 mx-auto mb-4 relative">
       <img
-        src="/api/placeholder/96/96"
+        src={pandit}
         alt={name}
         className="rounded-full w-full h-full object-cover border-4 border-yellow-400"
       />
@@ -22,7 +23,7 @@ const AstrologerCard = ({ name, language, experience, specialization }) => (
   </div>
 );
 
-const AstroCouncellor = () => {
+const Astrologers = () => {
   const astrologers = Array(4).fill({
     name: "Alok Singh",
     language: "Hindi, English",
@@ -66,4 +67,4 @@ const AstroCouncellor = () => {
   );
 };
 
-export default AstroCouncellor;
+export default Astrologers;

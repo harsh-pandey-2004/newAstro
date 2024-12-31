@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import pandit from '../../assets/image/pandit.png';
 
 const PanditsSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const pandits = Array(4).fill({
     name: "Alok Singh",
-    image: "/api/placeholder/400/400"
+    image: pandit
   });
 
   return (

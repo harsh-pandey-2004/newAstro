@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import KashiImage from '../../assets/image/KashiImage.png';
+import Vashno from '../../assets/image/VashnoImage.png';
+import Meenakshi from '../../assets/image/Meenakshi.png';
+import TrupatiImage from '../../assets/image/TrupatiImage.png';
 
 const TempleCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -7,22 +11,22 @@ const TempleCarousel = () => {
     {
       name: "Tirupati Balaji Temple",
       location: "Tirumala, Andhra Pradesh",
-      image: "/api/placeholder/400/300"
+      image: TrupatiImage
     },
     {
       name: "Kashi Vishwanath Temple",
       location: "Varanasi, Uttar Pradesh",
-      image: "/api/placeholder/400/300"
+      image: KashiImage 
     },
     {
       name: "Vaishno Devi Temple",
       location: "Katra, Jammu and Kashmir",
-      image: "/api/placeholder/400/300"
+      image: Vashno 
     },
     {
       name: "Meenakshi Temple",
       location: "Madurai, Tamil Nadu",
-      image: "/api/placeholder/400/300"
+      image:Meenakshi
     }
   ];
 

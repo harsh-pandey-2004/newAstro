@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Home1 from '../../assets/image/Home1.jpeg';
 const LandingPage = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white overflow-hidden">
@@ -9,22 +9,12 @@ const LandingPage = () => {
         <div className="absolute inset-0">
           {/* Main background */}
           <img 
-            src="/api/placeholder/1920/1080" 
+            src={Home1} 
             alt="Space background"
             className="w-full h-full object-cover"
           />
           
-          {/* Planets */}
-          <img 
-            src="/api/placeholder/200/200" 
-            alt="Planet 1"
-            className="absolute top-20 right-20 w-24 h-24 rounded-full"
-          />
-          <img 
-            src="/api/placeholder/150/150" 
-            alt="Planet 2"
-            className="absolute top-40 left-20 w-16 h-16 rounded-full"
-          />
+        
           
           {/* Curved overlay */}
           <div 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Star } from 'lucide-react';
-
+import VerfyImage from '../../assets/image/VerfyImage.png'
 const astrologers = [
   {
     id: 1,
@@ -39,7 +39,7 @@ const AstrologerCard = ({ astrologer, isSelected }) => {
     <div className={`border p-4 flex items-start gap-4 ${isSelected ? 'border-yellow-400' : 'border-gray-200'}`}>
       <div className="w-12 h-12 relative">
         <img
-          src="/api/placeholder/48/48"
+          src={VerfyImage}
           alt={astrologer.name}
           className="rounded-full bg-gray-200"
         />

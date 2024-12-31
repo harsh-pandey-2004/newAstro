@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import logo from '../assets/image/logo.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,8 +16,6 @@ const Navbar = () => {
     };
   }, []);
 
-  const isActive = (path) => location.pathname === path;
-
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
@@ -29,9 +26,9 @@ const Navbar = () => {
     >
       <div className="relative container mx-auto flex justify-between items-center px-6 py-3">
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2">
           <img
-            src="/path/to/logo.png"
+            src={logo}
             alt="Astro Captain Logo"
             className="h-8"
           />
@@ -42,81 +39,62 @@ const Navbar = () => {
           >
             Astro Captain
           </span>
-        </Link>
+        </div>
 
         {/* Navigation Links */}
         <ul className="hidden md:flex space-x-6 items-center text-sm">
-          <li>
-            <Link
-              to="/astro-page"
-              className={`hover:text-yellow-500 ${
-                isActive("/astro-page") ? "text-yellow-500 font-bold" : ""
-              }`}
-            >
+          <li className="group relative">
+            <a href="#" className="hover:text-yellow-500">
               Astrologer
-            </Link>
+            </a>
+            {/* Dropdown */}
+            <div className="absolute left-0 mt-2 hidden group-hover:block bg-black border border-gray-700 rounded shadow-lg">
+              <a href="#" className="block px-4 py-2 hover:bg-gray-800">
+                Option 1
+              </a>
+              <a href="#" className="block px-4 py-2 hover:bg-gray-800">
+                Option 2
+              </a>
+            </div>
           </li>
           <li>
-            <Link
-              to="/book-pandit"
-              className={`hover:text-yellow-500 ${
-                isActive("/book-pandit") ? "text-yellow-500 font-bold" : ""
-              }`}
-            >
+            <a href="#" className="hover:text-yellow-500">
               Book Pandit
-            </Link>
+            </a>
           </li>
           <li>
-            <Link
-              to="/book-pooja"
-              className={`hover:text-yellow-500 ${
-                isActive("/book-pooja") ? "text-yellow-500 font-bold" : ""
-              }`}
-            >
+            <a href="#" className="hover:text-yellow-500">
               Book Pooja
-            </Link>
+            </a>
           </li>
           <li>
-            <Link
-              to="/prasad"
-              className={`hover:text-yellow-500 ${
-                isActive("/prasad") ? "text-yellow-500 font-bold" : ""
-              }`}
-            >
+            <a href="#" className="hover:text-yellow-500">
               Prasad
-            </Link>
+            </a>
           </li>
           <li>
-            <Link
-              to="/astrocouncelor-page"
-              className={`hover:text-yellow-500 ${
-                isActive("/astrocouncelor-page")
-                  ? "text-yellow-500 font-bold"
-                  : ""
-              }`}
-            >
-              AstroCounsellor
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/free-matching"
-              className={`hover:text-yellow-500 ${
-                isActive("/free-matching") ? "text-yellow-500 font-bold" : ""
-              }`}
-            >
+            <a href="#" className="hover:text-yellow-500">
               Kundali
-            </Link>
+            </a>
+          </li>
+          <li className="group relative">
+            <a href="#" className="hover:text-yellow-500">
+              Astro-Counsel
+            </a>
+            {/* Dropdown */}
+            <div className="absolute left-0 mt-2 hidden group-hover:block bg-black border border-gray-700 rounded shadow-lg">
+              <a href="#" className="block px-4 py-2 hover:bg-gray-800">
+                Option 1
+              </a>
+              <a href="#" className="block px-4 py-2 hover:bg-gray-800">
+                Option 2
+              </a>
+            </div>
           </li>
           <li>
-            <Link
-              to="/vastu-making"
-              className={`hover:text-yellow-500 ${
-                isActive("/vastu-making") ? "text-yellow-500 font-bold" : ""
-              }`}
-            >
+            <a href="#" className="hover:text-yellow-500">
               Vastu Making
-            </Link>
+            </a>
           </li>
         </ul>
 

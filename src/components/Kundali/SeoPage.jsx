@@ -1,4 +1,5 @@
 import React from "react";
+import Wheel from '../../assets/image/Wheel.png'
 
 const KundliInfoSection = () => {
   return (
@@ -43,7 +44,7 @@ const KundliInfoSection = () => {
               {/* Zodiac Wheel Image */}
               <div className="my-6 flex justify-center">
                 <img
-                  src="/api/placeholder/200/200"
+                  src={Wheel}
                   alt="Zodiac Wheel"
                   className="w-48 h-48 rounded-full"
                 />

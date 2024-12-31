@@ -1,8 +1,16 @@
 import React from 'react';
+import Vastubg from '../../assets/image/Vastubg.png';
 
 const VastuShastraCard = () => {
   return (
-    <div className="relative bg-gray-900 min-h-screen flex items-center justify-center p-6">
+    <div
+      className="relative min-h-screen flex items-center justify-center p-6"
+      style={{
+        backgroundImage: `url(${Vastubg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black opacity-70"></div>
 
