@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Star } from "lucide-react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AstrologerCard = ({ firstName, languages, experience, Skills }) => (
   <div className="bg-white p-6 rounded-lg shadow-lg text-center relative">
@@ -26,6 +27,8 @@ const AstrologerCard = ({ firstName, languages, experience, Skills }) => (
 const Astrologers = () => {
   const [astrologer, setAstrologer] = useState([]);
   const [showAll, setShowAll] = useState(false);
+
+  const navigate = useNavigate();
   // const astrologers = Array(4).fill({
   //   name: "Alok Singh",
   //   language: "Hindi, English",
@@ -48,7 +51,6 @@ const Astrologers = () => {
     fetchData();
   }, []);
 
-  const handleViewAll = () => setShowAll((prevShowAll) => !prevShowAll);
   const displayedAstrologers = showAll ? astrologer : astrologer.slice(0, 4);
 
   return (
@@ -75,10 +77,17 @@ const Astrologers = () => {
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-bold">Our Astrologers</h2>
           <button
-            onClick={handleViewAll}
+            onClick={() => {
+              localStorage.setItem(
+                "astrologerData",
+                JSON.stringify(astrologer)
+              );
+              navigate("/astro-page", { state: { astrologer } });
+            }}
             className="text-yellow-600 hover:text-yellow-700"
           >
-            {showAll ? "Show Less" : "View All"}
+            {/* {showAll ? "Show Less" : "View All"} */}
+            View All
           </button>
         </div>
 
