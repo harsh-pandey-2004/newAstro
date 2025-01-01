@@ -78,11 +78,7 @@ const Astrologers = () => {
           <h2 className="text-2xl font-bold">Our Astrologers</h2>
           <button
             onClick={() => {
-              localStorage.setItem(
-                "astrologerData",
-                JSON.stringify(astrologer)
-              );
-              navigate("/astro-page", { state: { astrologer } });
+              navigate("/astro-page");
             }}
             className="text-yellow-600 hover:text-yellow-700"
           >
