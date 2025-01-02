@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Star } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 // const astrologers = [
@@ -37,9 +37,14 @@ import axios from "axios";
 // ];
 
 const AstrologerCard = ({ astrologer, isSelected }) => {
+  const navigate = useNavigate();
+  const handleCardClick = () => {
+    navigate(`/astrologer/${astrologer._id}`, { state: { astrologer } });
+  };
   return (
     <div
-      className={`border p-4 flex items-start gap-4 ${
+      onClick={handleCardClick}
+      className={`border p-4 flex items-start gap-4 cursor-pointer ${
         isSelected ? "border-yellow-400" : "border-gray-200"
       }`}
     >
