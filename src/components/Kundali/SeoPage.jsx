@@ -46,12 +46,13 @@ const KundliInfoSection = () => {
                 <img
                   src={Wheel}
                   alt="Zodiac Wheel"
+
                   className="w-48 h-48 rounded-full"
                 />
               </div>
 
               <button className="w-full bg-white text-black py-2 px-4 rounded hover:bg-gray-100 transition-colors">
-                Visit here
+                Visit here..
               </button>
             </div>
           </div>
