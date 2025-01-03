@@ -1,6 +1,10 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 const AstrologerProfile = () => {
+  const location = useLocation();
+  const astrologer = location.state?.astrologer;
+  console.log(astrologer);
   return (
     <div className="container mx-auto p-6 pt-20">
       {/* Header Section */}
@@ -14,11 +18,13 @@ const AstrologerProfile = () => {
 
         {/* Details */}
         <div className="flex-1">
-          <h1 className="text-2xl font-bold">Rishabh Tiwari</h1>
-          <p className="text-gray-600">Title: Vedic Astrologer</p>
-          <p className="text-gray-600">Language: English</p>
+          <h1 className="text-2xl font-bold">{astrologer.firstName}</h1>
+          <p className="text-gray-600">Title: {astrologer.Skills}</p>
+          <p className="text-gray-600">Language: {astrologer.languages}</p>
           <p className="text-gray-600">Rating: ⭐⭐⭐⭐⭐</p>
-          <p className="text-yellow-600 font-semibold text-lg">₹222/min</p>
+          <p className="text-yellow-600 font-semibold text-lg">
+            ₹{astrologer.talkPrice}/min
+          </p>
         </div>
 
         {/* Call Button */}
@@ -48,7 +54,9 @@ const AstrologerProfile = () => {
           <h2 className="text-lg font-bold text-gray-800">Rating & Reviews</h2>
           <div className="flex items-center mt-4">
             <p className="text-3xl font-bold">4.83</p>
-            <span className="text-sm text-gray-600 ml-2">based on 5 reviews</span>
+            <span className="text-sm text-gray-600 ml-2">
+              based on 5 reviews
+            </span>
           </div>
           <div className="mt-4">
             {[5, 4, 3, 2, 1].map((star) => (
