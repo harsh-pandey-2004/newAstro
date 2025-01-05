@@ -1,9 +1,19 @@
 import React from "react";
+import footerFB from "../assets/image/Footerbg.webp";
 
 const Footer = () => {
   return (
-    <footer className="text-gray-800 bg-gradient-to-t from-yellow-400 to-yellow-500 sm:px-8 pt-8 pb-3 ">
-      <div className="container mx-auto sm:px-6 px-5   text-sm">
+    <footer
+      className="text-gray-800 sm:px-8 py-8 sm:pt-8"
+      style={{
+        backgroundImage: `url(${footerFB})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        minHeight: "500px", 
+      }}
+    >
+      <div className="container mx-auto sm:px-6 px-5 text-sm mt-52">
         {/* Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
@@ -18,11 +28,9 @@ const Footer = () => {
               <button className="bg-black text-white py-2 px-6 rounded-md hover:bg-gray-800 shadow-lg">
                 Register
               </button>
-              
               <button className="bg-black text-white py-2 px-6 rounded-md hover:bg-gray-800 shadow-lg">
                 Appoint
               </button>
-
             </div>
           </div>
 
@@ -51,7 +59,7 @@ const Footer = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="mt-12 text-center text-xs border-t border-yellow-300 pt-6 text-gray-700">
+        <div className="2 text-center text-xs border-t border-yellow-300 pt-6 text-gray-700">
           © 2024 Astro Captain, All Rights Reserved. <br />
           <a href="#" className="hover:underline text-black">
             Terms & Conditions
