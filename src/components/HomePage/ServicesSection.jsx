@@ -1,4 +1,8 @@
 import React from 'react';
+import Home4 from '../../assets/image/home4.png';
+import FortuneTeller from '../../assets/image/fortunetellerImage.png';
+import vastu from '../../assets/image/vastuImage.png';
+import prasad from '../../assets/image/prasad.png';
 
 const AstrologyServices = () => {
   const services = [
@@ -6,25 +10,25 @@ const AstrologyServices = () => {
       id: "01",
       title: "Free Kundli",
       description: "Decode your cosmic blueprint to uncover your strengths, overcome challenges and align with your destiny.",
-      imageUrl: "/api/placeholder/500/300"
+      imageUrl: Home4
     },
     {
       id: "02",
       title: "Compatibility Readings",
       description: "Build deeper, more lasting relationships with insights attuned to your unique dynamics.",
-      imageUrl: "/api/placeholder/500/300"
+      imageUrl: FortuneTeller
     },
     {
       id: "03",
       title: "Vastu Solutions",
       description: "Transform your home into a sanctuary of harmony, abundance and positive energy.",
-      imageUrl: "/api/placeholder/500/300"
+      imageUrl: vastu
     },
     {
       id: "04",
       title: "Prasad Offerings",
       description: "Strengthen your spiritual connection and invite divine blessings into your life.",
-      imageUrl: "/api/placeholder/500/300"
+      imageUrl: prasad
     }
   ];
 

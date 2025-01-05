@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import CustomerImage from '../../assets/image/CustomerImage.png'
 
 const Testimonials = () => {
   const testimonials = [
@@ -10,21 +11,21 @@ const Testimonials = () => {
       role: "Engineer",
       review:
         "You won't regret it. I would like to personally thank you for your outstanding service. Absolutely wonderful!",
-      image: "https://via.placeholder.com/150",
+      image: CustomerImage,
     },
     {
       name: "Megen W.",
       role: "Designer",
       review:
         "Just what I was looking for. Your service managed to exceed my expectations at all times.",
-      image: "https://via.placeholder.com/150",
+      image: CustomerImage,
     },
     {
       name: "Anita P.",
       role: "Teacher",
       review:
         "Amazing! I can't imagine a better experience. The level of detail is remarkable.",
-      image: "https://via.placeholder.com/150",
+      image:CustomerImage,
     },
   ];
 

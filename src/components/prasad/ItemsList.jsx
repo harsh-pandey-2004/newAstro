@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import BraceletImage from '../../assets/image/BraceletImage.png';
+import Bracelet2 from '../../assets/image/Bracelet2.png';
 const ProductSection = () => {
   const [activeTab, setActiveTab] = useState("Bracelets");
 
@@ -8,7 +9,7 @@ const ProductSection = () => {
     {
       id: 1,
       name: "Black Beaded Rhinestone",
-      image: "https://via.placeholder.com/150", // Replace with actual image URLs
+      image: BraceletImage , // Replace with actual image URLs
       price: 95.5,
       reviews: "240 Customer Reviews",
       rating: 5,
@@ -17,7 +18,7 @@ const ProductSection = () => {
     {
       id: 2,
       name: "Braided Multi-Strand",
-      image: "https://via.placeholder.com/150",
+      image: Bracelet2,
       price: 95.5,
       reviews: "240 Customer Reviews",
       rating: 5,
@@ -26,7 +27,7 @@ const ProductSection = () => {
     {
       id: 3,
       name: "Braided Multi-Strand",
-      image: "https://via.placeholder.com/150",
+      image: BraceletImage ,
       price: 95.5,
       reviews: "240 Customer Reviews",
       rating: 5,

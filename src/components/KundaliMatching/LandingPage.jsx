@@ -1,4 +1,5 @@
 import React from 'react';
+import bgImage3 from '../../assets/image/bgImage3.png'
 
 const CompatibilityHero = () => {
   return (
@@ -7,7 +8,7 @@ const CompatibilityHero = () => {
       <div 
         className="absolute inset-0 bg-[#2D0909] overflow-hidden"
         style={{
-          backgroundImage: `url('/api/placeholder/1920/1080')`,
+          backgroundImage: `url(${bgImage3})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}

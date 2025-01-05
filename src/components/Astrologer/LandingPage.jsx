@@ -1,4 +1,5 @@
 import React from 'react';
+import AstroImage from '../../assets/image/AstroImage.png'
 
 const AstrologyHero = () => {
   return (
@@ -10,7 +11,7 @@ const AstrologyHero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url('/api/placeholder/1920/1080')` // Replace with actual image URL in production
+          backgroundImage: `url(${AstroImage})` // Replace with actual image URL in production
         }}
       ></div>
       

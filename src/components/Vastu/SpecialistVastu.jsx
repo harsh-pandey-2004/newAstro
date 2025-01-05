@@ -1,5 +1,6 @@
 import React from 'react';
 import { Linkedin, Twitter } from 'lucide-react';
+import Dheeresh from '../../assets/image/Dheeresh.png'
 
 const SpecialistProfile = () => {
   const specialists = [
@@ -30,7 +31,7 @@ const SpecialistProfile = () => {
           {specialists.map((specialist, index) => (
             <div key={index} className="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row gap-6">
               <div className="w-48 h-48 flex-shrink-0">
-                <img src="/api/placeholder/192/192" alt={specialist.name} className="w-full h-full object-cover rounded" />
+                <img src= {Dheeresh} alt={specialist.name} className="w-full h-full object-cover rounded" />
               </div>
               
               <div className="flex-grow">

@@ -1,11 +1,11 @@
 import React from "react";
-
+import BannerImage from '../../assets/image/BannerImage.png';
 const PanditBanner = () => {
   return (
     <div
       className="relative bg-cover bg-center h-screen flex items-center justify-center"
       style={{
-        backgroundImage: "url('https://your-image-link.com')",
+        backgroundImage: `url(${BannerImage})`,
       }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>

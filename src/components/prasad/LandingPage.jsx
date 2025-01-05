@@ -1,11 +1,12 @@
 import React from "react";
-
+import bgImage2 from '../../assets/image/bgImage2.png'
 const AstrologyYantras = () => {
   return (
     <div className="relative bg-black text-white h-screen flex items-center justify-center">
       {/* Background Image */}
       <img
-        src="background-image-url.jpg" // Replace with the actual URL or import
+        src={bgImage2}
+
         alt="Yantras Background"
         className="absolute inset-0 w-full h-full object-cover opacity-80"
       />

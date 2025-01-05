@@ -1,4 +1,7 @@
 import React from "react";
+import GaneshImage from '../../assets/image/GaneshImage.png';
+import ShivImage from '../../assets/image/ShivImage.png';
+import DiwaliImage from '../../assets/image/DiwaliImage.png';
 
 const events = [
   {
@@ -6,7 +9,7 @@ const events = [
     date: "September 07 2024, Saturday",
     description:
       "Ganesha Chaturthi is celebrated to honor Lord Ganesha. The festival begins on the fourth day of the Hindu month Bhadrapada.",
-    image: "https://your-image-link.com/ganesha.jpg",
+    image: GaneshImage,
     day: "07",
     dayName: "Saturday",
   },
@@ -15,7 +18,7 @@ const events = [
     date: "September 17 2024, Tuesday",
     description:
       "The full Moon day in the month of Ashadha is referred to as Sharadpurnima.",
-    image: "https://your-image-link.com/diwali.jpg",
+    image: DiwaliImage,
     day: "17",
     dayName: "Tuesday",
   },
@@ -24,7 +27,7 @@ const events = [
     date: "September 17 2024, Tuesday",
     description:
       "Maha Shivaratri is a key period in the Hindu calendar when Hindus pay homage to their ancestors through rituals and food offerings.",
-    image: "https://your-image-link.com/shivaratri.jpg",
+    image: ShivImage,
     day: "17",
     dayName: "Tuesday",
   },
