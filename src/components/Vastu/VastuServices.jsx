@@ -1,4 +1,8 @@
 import React from "react";
+import Homevastu from '../../assets/image/Homevastu.png';
+import Officevastu from '../../assets/image/Officevastu.png';
+import Commercialvastu from '../../assets/image/Commercialvastu.png';
+import Vastutips from '../../assets/image/Vastutips.png';
 
 const ServicesWeProvide = () => {
   const services = [
@@ -6,28 +10,28 @@ const ServicesWeProvide = () => {
       title: "HOME VASTU",
       description:
         "Key principles of Home Vastu include the proper orientation of rooms, placement of furniture, and selection of colors to optimize energy flow.",
-      image: "https://via.placeholder.com/300", // Replace with actual image URL
+      image:Homevastu, // Replace with actual image URL
       symbol: "♋", // Replace with your zodiac symbols or SVG paths
     },
     {
       title: "OFFICE VASTU",
       description:
         "Office Vastu focuses on the strategic arrangement of office elements to harness positive energy flow.",
-      image: "https://via.placeholder.com/300",
+      image: Officevastu,
       symbol: "♌",
     },
     {
       title: "COMMERCIAL VASTU",
       description:
         "The layout and orientation of commercial spaces are tailored to enhance financial stability, customer flow, and overall business growth.",
-      image: "https://via.placeholder.com/300",
+      image: Commercialvastu,
       symbol: "♉",
     },
     {
       title: "VASTU TIPS",
       description:
         "Vastu tips offer practical guidance for aligning your living or working spaces with harmonious energies to enhance well-being and prosperity.",
-      image: "https://via.placeholder.com/300",
+      image: Vastutips,
       symbol: "♊",
     },
   ];
