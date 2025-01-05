@@ -25,13 +25,7 @@ const AstrologerCard = ({ firstName, languages, experience, Skills }) => (
 
 const AstroCouncellor = () => {
   const [astroCouncellor, setAstroCouncellor] = useState([]);
-  const [showAll, setShowAll] = useState(false);
-  // const astrologers = Array(4).fill({
-  //   name: "Alok Singh",
-  //   language: "Hindi, English",
-  //   experience: "Experience: 15+ Years",
-  //   specialization: "Vedic Astrology",
-  // });
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,10 +41,25 @@ const AstroCouncellor = () => {
     fetchData();
   }, []);
 
-  const handleViewAll = () => setShowAll((prevShowAll) => !prevShowAll);
-  const displayedAstroCouncellor = showAll
-    ? astroCouncellor
-    : astroCouncellor.slice(0, 4);
+  const getVisibleSlides = () => {
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth >= 1024) return 4; // Desktop
+      if (window.innerWidth >= 768) return 2; // Tablet
+      return 1; // Mobile
+    }
+    return 1;
+  };
+
+  const handleDotClick = (dotIndex) => {
+    const counselorsPerSection = Math.ceil(astroCouncellor.length / 3);
+    const newIndex = dotIndex * counselorsPerSection;
+    setCurrentIndex(Math.min(newIndex, astroCouncellor.length - getVisibleSlides()));
+  };
+
+  const getCurrentDot = () => {
+    const counselorsPerSection = Math.ceil(astroCouncellor.length / 3);
+    return Math.floor(currentIndex / counselorsPerSection);
+  };
 
   return (
     <div className="relative py-12 px-4 overflow-hidden">
@@ -76,21 +85,51 @@ const AstroCouncellor = () => {
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-bold">Our Councellors</h2>
           <button
-            onClick={handleViewAll}
+            onClick={() => {
+              const newUrl = window.location.pathname + "?view=all";
+              window.history.pushState({ path: newUrl }, '', newUrl);
+            }}
             className="text-yellow-600 hover:text-yellow-700"
           >
-            {showAll ? "Show Less" : "View All"}
+            View All
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {displayedAstroCouncellor.map((astro, index) => (
-            <AstrologerCard
-              key={index}
-              firstName={astro.firstName}
-              languages={astro.languages}
-              experience={astro.experience}
-              Skills={astro.Skills}
+        <div className="overflow-hidden">
+          <div
+            className="flex transition-transform duration-300 ease-in-out"
+            style={{
+              transform: `translateX(-${currentIndex * (100 / getVisibleSlides())}%)`,
+            }}
+          >
+            {astroCouncellor.map((astro, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-full md:w-1/2 lg:w-1/4 px-4"
+              >
+                <AstrologerCard
+                  firstName={astro.firstName}
+                  languages={astro.languages}
+                  experience={astro.experience}
+                  Skills={astro.Skills}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Three Dot Navigation */}
+        <div className="flex justify-center gap-2 mt-8">
+          {[0, 1, 2].map((dotIndex) => (
+            <button
+              key={dotIndex}
+              onClick={() => handleDotClick(dotIndex)}
+              className={`h-2 rounded-full transition-all ${
+                getCurrentDot() === dotIndex
+                  ? "w-8 bg-yellow-400"
+                  : "w-2 bg-gray-400"
+              }`}
+              aria-label={`Go to section ${dotIndex + 1}`}
             />
           ))}
         </div>

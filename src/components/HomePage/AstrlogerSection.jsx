@@ -8,7 +8,7 @@ const AstrologerCard = ({ firstName, languages, experience, Skills }) => (
     <div className="w-24 h-24 mx-auto mb-4 relative">
       <img
         src="/api/placeholder/96/96"
-        alt={name}
+        alt={firstName}
         className="rounded-full w-full h-full object-cover border-4 border-yellow-400"
       />
     </div>
@@ -26,15 +26,8 @@ const AstrologerCard = ({ firstName, languages, experience, Skills }) => (
 
 const Astrologers = () => {
   const [astrologer, setAstrologer] = useState([]);
-  const [showAll, setShowAll] = useState(false);
-
+  const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
-  // const astrologers = Array(4).fill({
-  //   name: "Alok Singh",
-  //   language: "Hindi, English",
-  //   experience: "Experience: 15+ Years",
-  //   specialization: "Vedic Astrology",
-  // });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,7 +36,6 @@ const Astrologers = () => {
           "https://astrobackend.onrender.com/api/astrologer-data"
         );
         setAstrologer(response.data.Astrodata);
-        // console.log(response.data.Astrodata);
       } catch (error) {
         console.error("Error fetching astrologer data:", error);
       }
@@ -51,7 +43,35 @@ const Astrologers = () => {
     fetchData();
   }, []);
 
-  const displayedAstrologers = showAll ? astrologer : astrologer.slice(0, 4);
+  const getVisibleSlides = () => {
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth >= 1024) return 4; // Desktop
+      if (window.innerWidth >= 768) return 2; // Tablet
+      return 1; // Mobile
+    }
+    return 1;
+  };
+
+  const handleDotClick = (dotIndex) => {
+    // Calculate how many astrologers per dot section
+    const astrologersPerSection = Math.ceil(astrologer.length / 3);
+    const newIndex = dotIndex * astrologersPerSection;
+    setCurrentIndex(Math.min(newIndex, astrologer.length - getVisibleSlides()));
+  };
+
+  const getCurrentDot = () => {
+    const astrologersPerSection = Math.ceil(astrologer.length / 3);
+    return Math.floor(currentIndex / astrologersPerSection);
+  };
+
+  const nextSlide = () => {
+    const maxIndex = astrologer.length - getVisibleSlides();
+    setCurrentIndex(prev => Math.min(prev + 1, maxIndex));
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex(prev => Math.max(prev - 1, 0));
+  };
 
   return (
     <div className="relative py-12 px-4 overflow-hidden">
@@ -86,19 +106,45 @@ const Astrologers = () => {
             }}
             className="text-yellow-600 hover:text-yellow-700"
           >
-            {/* {showAll ? "Show Less" : "View All"} */}
             View All
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {displayedAstrologers.map((astro, index) => (
-            <AstrologerCard
-              key={index}
-              firstName={astro.firstName}
-              languages={astro.languages}
-              experience={astro.experience}
-              Skills={astro.Skills}
+        <div className="overflow-hidden">
+          <div
+            className="flex transition-transform duration-300 ease-in-out"
+            style={{
+              transform: `translateX(-${currentIndex * (100 / getVisibleSlides())}%)`,
+            }}
+          >
+            {astrologer.map((astro, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-full md:w-1/2 lg:w-1/4 px-4"
+              >
+                <AstrologerCard
+                  firstName={astro.firstName}
+                  languages={astro.languages}
+                  experience={astro.experience}
+                  Skills={astro.Skills}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Three Dot Navigation */}
+        <div className="flex justify-center items-center mt-8 space-x-2">
+          {[0, 1, 2].map((dotIndex) => (
+            <button
+              key={dotIndex}
+              onClick={() => handleDotClick(dotIndex)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                getCurrentDot() === dotIndex
+                  ? 'bg-yellow-400 w-6'
+                  : 'bg-gray-300 hover:bg-gray-400'
+              }`}
+              aria-label={`Go to section ${dotIndex + 1}`}
             />
           ))}
         </div>

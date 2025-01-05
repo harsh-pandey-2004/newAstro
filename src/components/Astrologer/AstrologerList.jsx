@@ -2,39 +2,6 @@ import React from "react";
 import { Star } from "lucide-react";
 import { useLocation } from "react-router-dom";
 
-const astrologers = [
-  {
-    id: 1,
-    name: "Rishabh Tiwari",
-    experience: "Vedic Astrology",
-    price: "₹10/min",
-    rating: 4.5,
-    reviews: 25,
-    languages: "English, Hindi, kannada",
-    isOnline: true,
-  },
-  {
-    id: 2,
-    name: "Rishabh Tiwari",
-    experience: "Vedic Astrology",
-    price: "₹10/min",
-    rating: 4.8,
-    reviews: 34,
-    languages: "English, Hindi, kannada",
-    isOnline: true,
-  },
-  {
-    id: 3,
-    name: "Rishabh Tiwari",
-    experience: "Vedic Astrology",
-    price: "₹10/min",
-    rating: 4.6,
-    reviews: 28,
-    languages: "English, Hindi, kannada",
-    isOnline: true,
-  },
-];
-
 const AstrologerCard = ({ astrologer, isSelected }) => {
   return (
     <div
