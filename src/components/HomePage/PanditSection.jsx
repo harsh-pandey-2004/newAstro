@@ -17,7 +17,7 @@ const PanditsSlider = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://astrobackend.onrender.com/api/getAllPandits"
+          `${import.meta.env.VITE_BACKEND_URL}/api/getAllPandits`
         );
         setPandits(response.data.PanditData);
         // console.log(response.data.PanditData);

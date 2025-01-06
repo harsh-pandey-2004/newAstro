@@ -40,7 +40,7 @@ const Astrologers = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://astrobackend.onrender.com/api/astrologer-data"
+          `${import.meta.env.VITE_BACKEND_URL}/api/astrologer-data`
         );
         setAstrologer(response.data.Astrodata);
         // console.log(response.data.Astrodata);
