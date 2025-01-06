@@ -1,5 +1,5 @@
 import React from "react";
-
+import Serviceimg from '../../assets/image/Serviceimg.png';
 const MultidisciplinaryTeam = () => {
   const features = [
     "Personalized life coaching and strategic guidance",
@@ -12,24 +12,17 @@ const MultidisciplinaryTeam = () => {
 
   return (
     <div className="bg-white py-12 px-6">
-      <h2 className="text-center text-xl font-bold mb-8">
+      <h2 className="text-center text-3xl font-bold mb-8">
         Our multidisciplinary team delivers
       </h2>
       <div className="relative flex flex-col items-center">
         {/* Characters and Mobile */}
-        <div className="flex justify-center items-center mb-8 relative">
-          {/* Mobile illustration */}
-          <div className="relative bg-gray-200 w-36 h-72 rounded-md shadow-lg">
-            {/* Person inside mobile */}
-            <div className="absolute top-6 left-1/2 transform -translate-x-1/2 bg-yellow-300 w-16 h-24 rounded-md"></div>
-          </div>
-          {/* Two characters */}
-          <div className="w-16 h-32 bg-red-200 rounded-md shadow-md ml-4"></div>
-          <div className="w-16 h-32 bg-yellow-200 rounded-md shadow-md mr-4"></div>
-        </div>
+       <div>
+        <img src={Serviceimg} alt="image" />
+       </div>
 
         {/* Features */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
             <div
               key={index}
@@ -39,7 +32,7 @@ const MultidisciplinaryTeam = () => {
               <p>{feature}</p>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );
