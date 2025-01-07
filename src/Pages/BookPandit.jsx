@@ -4,6 +4,8 @@ import PanditInfo from '../components/BookaPandit/PanditInfo'
 import UpcomingEvents from '../components/BookaPandit/UpcomingEvents'
 import PanditsStats from '../components/BookaPandit/PanditsStats'
 import Testimonials from '../components/BookaPandit/Testimonials'
+import HowItWorks from "../components/BookPooja/HowitWorksPandit";
+
 
 const BookPandit = () => {
   return (
@@ -11,6 +13,7 @@ const BookPandit = () => {
       <PanditBanner/>
       <PanditInfo/>
       <UpcomingEvents/>
+      <HowItWorks/>
       <PanditsStats/>
       <Testimonials/>
     </div>

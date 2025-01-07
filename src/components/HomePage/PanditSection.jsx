@@ -40,19 +40,21 @@ const PanditsSlider = () => {
   };
 
   return (
-    <div className="bg-yellow-300 py-8 px-4">
+          <div className="bg-gradient-to-b from-[#FFD700] to-[#FFA600] py-8 px-4">
+
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-bold">Our Pandits</h2>
           <button
-            onClick={() => {
-              const newUrl = window.location.pathname + "?view=all";
-              window.history.pushState({ path: newUrl }, '', newUrl);
-            }}
-            className="text-black hover:text-gray-700"
-          >
-            View All
-          </button>
+  onClick={() => {
+    const newUrl = window.location.pathname + "?view=all";
+    window.history.pushState({ path: newUrl }, '', newUrl);
+  }}
+  className="text-black hover:text-gray-700 bg-white px-3 rounded-lg border"
+>
+  View All
+</button>
+
         </div>
 
         <div className="overflow-hidden">

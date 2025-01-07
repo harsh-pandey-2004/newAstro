@@ -1,8 +1,8 @@
 import React from 'react';
-import Home1 from '../../assets/image/Home1.jpeg';
+import Home1 from '../../assets/image/Home1.png';
 const LandingPage = () => {
   return (
-    <div className="min-h-screen bg-gray-900 text-white overflow-hidden">
+    <div className="min-h-screen text-white overflow-hidden">
       {/* Main Hero Section */}
       <div className="relative h-screen">
         {/* Background Images */}
@@ -18,7 +18,7 @@ const LandingPage = () => {
           
           {/* Curved overlay */}
           <div 
-            className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900"
+            className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-700"
             style={{
               clipPath: 'polygon(0 0, 100% 0, 100% 85%, 0 100%)'
             }}

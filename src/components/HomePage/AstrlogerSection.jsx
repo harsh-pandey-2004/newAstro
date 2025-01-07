@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Star } from "lucide-react";
 import axios from "axios";
+import sun from "../../assets/image/Sunimg.png"; // Import the sun image
 import { useNavigate } from "react-router-dom";
 
 const AstrologerCard = ({ firstName, languages, experience, Skills }) => (
   <div className="bg-white p-6 rounded-lg shadow-lg text-center relative">
     <div className="w-24 h-24 mx-auto mb-4 relative">
       <img
-        // src={pandit}
-        alt={name}
+        alt={firstName}
         className="rounded-full w-full h-full object-cover border-4 border-yellow-400"
       />
     </div>
@@ -44,7 +44,7 @@ const Astrologers = () => {
   }, []);
 
   const getVisibleSlides = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       if (window.innerWidth >= 1024) return 4; // Desktop
       if (window.innerWidth >= 768) return 2; // Tablet
       return 1; // Mobile
@@ -53,7 +53,6 @@ const Astrologers = () => {
   };
 
   const handleDotClick = (dotIndex) => {
-    // Calculate how many astrologers per dot section
     const astrologersPerSection = Math.ceil(astrologer.length / 3);
     const newIndex = dotIndex * astrologersPerSection;
     setCurrentIndex(Math.min(newIndex, astrologer.length - getVisibleSlides()));
@@ -66,41 +65,32 @@ const Astrologers = () => {
 
   const nextSlide = () => {
     const maxIndex = astrologer.length - getVisibleSlides();
-    setCurrentIndex(prev => Math.min(prev + 1, maxIndex));
+    setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
   };
 
   const prevSlide = () => {
-    setCurrentIndex(prev => Math.max(prev - 1, 0));
+    setCurrentIndex((prev) => Math.max(prev - 1, 0));
   };
 
   return (
-    <div className="relative py-12 px-4 overflow-hidden">
-      {/* Sun Background */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[600px] h-[600px] bg-yellow-100 rounded-full opacity-20"></div>
-        <div className="absolute w-[700px] h-[700px] animate-spin-slow">
-          {[...Array(12)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-24 h-8 bg-yellow-200 opacity-20"
-              style={{
-                transform: `rotate(${i * 30}deg)`,
-                transformOrigin: "center",
-              }}
-            ></div>
-          ))}
-        </div>
-      </div>
-
+    <div
+      className="relative py-12 px-4 "
+      style={{
+        backgroundImage: `url(${sun})`, // Set the background image to the sun image
+        backgroundPosition: "center", // Center the image
+        backgroundRepeat: "no-repeat", // Prevent the image from repeating
+        backgroundSize: "700px 500px", // Set a specific size for the background image (you can adjust the size here)
+      }}
+    >
       {/* Content */}
       <div className="max-w-6xl mx-auto relative">
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-2xl font-bold">Our Astrologers</h2>
+          <h2 className="text-2xl font-bold text-black">Our Astrologers</h2>
           <button
             onClick={() => {
               navigate("/astro-page");
             }}
-            className="text-yellow-600 hover:text-yellow-700"
+            className="text-yellow-600 hover:text-yellow-700 border-2 border-orange-400 p-2 rounded-md"
           >
             View All
           </button>
@@ -110,7 +100,9 @@ const Astrologers = () => {
           <div
             className="flex transition-transform duration-300 ease-in-out"
             style={{
-              transform: `translateX(-${currentIndex * (100 / getVisibleSlides())}%)`,
+              transform: `translateX(-${
+                currentIndex * (100 / getVisibleSlides())
+              }%)`,
             }}
           >
             {astrologer.map((astro, index) => (
@@ -137,8 +129,8 @@ const Astrologers = () => {
               onClick={() => handleDotClick(dotIndex)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 getCurrentDot() === dotIndex
-                  ? 'bg-yellow-400 w-6'
-                  : 'bg-gray-300 hover:bg-gray-400'
+                  ? "bg-yellow-400 w-6"
+                  : "bg-gray-300 hover:bg-gray-400"
               }`}
               aria-label={`Go to section ${dotIndex + 1}`}
             />

@@ -79,7 +79,7 @@ const AstroCouncellor = () => {
           <h2 className="text-2xl font-bold">Our Counsellors</h2>
           <button
             onClick={() => navigate("/astrocouncelor-page")}
-            className="text-yellow-600 hover:text-yellow-700"
+            className="text-yellow-600 hover:text-yellow-700 border-2 border-orange-400 p-2 rounded-md"
           >
             View All
           </button>
