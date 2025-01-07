@@ -34,7 +34,7 @@ const AstroCouncellor = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://astrobackend.onrender.com/api/astroCouncelor-data"
+          `${import.meta.env.VITE_BACKEND_URL}/api/astroCouncelor-data`
         );
         setAstroCouncellor(response.data.Astrodata);
       } catch (error) {
