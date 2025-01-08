@@ -11,6 +11,7 @@ const PanditsSlider = () => {
         const response = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}/api/getAllPandits`
         );
+        console.log(response.data.PanditData);
         setPandits(response.data.PanditData);
       } catch (error) {
         console.error("Error fetching astrologer data:", error);
@@ -20,7 +21,7 @@ const PanditsSlider = () => {
   }, []);
 
   const getVisibleSlides = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       if (window.innerWidth >= 768) return 4; // Desktop/Tablet
       return 2; // Mobile
     }
@@ -40,35 +41,32 @@ const PanditsSlider = () => {
   };
 
   return (
-          <div className="bg-gradient-to-b from-[#FFD700] to-[#FFA600] py-8 px-4">
-
+    <div className="bg-gradient-to-b from-[#FFD700] to-[#FFA600] py-8 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-bold">Our Pandits</h2>
           <button
-  onClick={() => {
-    const newUrl = window.location.pathname + "?view=all";
-    window.history.pushState({ path: newUrl }, '', newUrl);
-  }}
-  className="text-black hover:text-gray-700 bg-white px-3 rounded-lg border"
->
-  View All
-</button>
-
+            onClick={() => {
+              const newUrl = window.location.pathname + "?view=all";
+              window.history.pushState({ path: newUrl }, "", newUrl);
+            }}
+            className="text-black hover:text-gray-700 bg-white px-3 rounded-lg border"
+          >
+            View All
+          </button>
         </div>
 
         <div className="overflow-hidden">
           <div
             className="flex transition-transform duration-300 ease-in-out"
             style={{
-              transform: `translateX(-${currentIndex * (100 / getVisibleSlides())}%)`,
+              transform: `translateX(-${
+                currentIndex * (100 / getVisibleSlides())
+              }%)`,
             }}
           >
             {pandits.map((pandit, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-1/2 md:w-1/4 px-2"
-              >
+              <div key={index} className="flex-shrink-0 w-1/2 md:w-1/4 px-2">
                 <div className="relative rounded-2xl overflow-hidden bg-white shadow-lg">
                   <img
                     src={pandit.image}

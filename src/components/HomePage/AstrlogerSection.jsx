@@ -4,10 +4,17 @@ import axios from "axios";
 import sun from "../../assets/image/Sunimg.png"; // Import the sun image
 import { useNavigate } from "react-router-dom";
 
-const AstrologerCard = ({ firstName, languages, experience, Skills }) => (
+const AstrologerCard = ({
+  image,
+  firstName,
+  languages,
+  experience,
+  Skills,
+}) => (
   <div className="bg-white p-6 rounded-lg shadow-lg text-center relative">
     <div className="w-24 h-24 mx-auto mb-4 relative">
       <img
+        src={image}
         alt={firstName}
         className="rounded-full w-full h-full object-cover border-4 border-yellow-400"
       />
@@ -35,6 +42,7 @@ const Astrologers = () => {
         const response = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}/api/astrologer-data`
         );
+        console.log(response.data.Astrodata);
         setAstrologer(response.data.Astrodata);
       } catch (error) {
         console.error("Error fetching astrologer data:", error);
@@ -111,6 +119,7 @@ const Astrologers = () => {
                 className="flex-shrink-0 w-full md:w-1/2 lg:w-1/4 px-4"
               >
                 <AstrologerCard
+                  image={astro.image}
                   firstName={astro.firstName}
                   languages={astro.languages}
                   experience={astro.experience}
