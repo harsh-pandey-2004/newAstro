@@ -18,10 +18,8 @@ const LandingPage = () => {
           
           {/* Curved overlay */}
           <div 
-            className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-700"
-            style={{
-              clipPath: 'polygon(0 0, 100% 0, 100% 85%, 0 100%)'
-            }}
+            className="absolute   "
+            
           />
         </div>
 
