@@ -81,7 +81,7 @@ const HoroscopeCarousel = () => {
                     <img src={horoscope.image} alt={horoscope.title} className="w-full h-full object-cover rounded-full" />
                   </div>
                   <p className="text-sm text-center">{horoscope.description}</p>
-                  <h3 className="font-bold text-lg mb-1">{horoscope.title}</h3>
+                  <h3 className="font-semibold text-sm mb-2">{horoscope.title}</h3>
                   <p className="text-sm text-gray-600">{horoscope.date}</p>
                 </div>
               </div>
