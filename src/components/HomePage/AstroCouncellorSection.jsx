@@ -3,11 +3,17 @@ import { Star } from "lucide-react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const AstrologerCard = ({ firstName, languages, experience, Skills }) => (
+const AstrologerCard = ({
+  image,
+  firstName,
+  languages,
+  experience,
+  Skills,
+}) => (
   <div className="bg-white p-6 rounded-lg shadow-lg text-center relative">
     <div className="w-24 h-24 mx-auto mb-4 relative">
       <img
-        src="/api/placeholder/96/96"
+        src={image}
         alt={firstName}
         className="rounded-full w-full h-full object-cover border-4 border-yellow-400"
       />
@@ -90,6 +96,7 @@ const AstroCouncellor = () => {
             {displayedAstroCouncellor.map((astro, index) => (
               <AstrologerCard
                 key={index}
+                image={astro.image}
                 firstName={astro.firstName}
                 languages={astro.languages}
                 experience={astro.experience}

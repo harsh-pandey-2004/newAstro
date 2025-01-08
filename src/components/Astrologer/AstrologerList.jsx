@@ -50,7 +50,7 @@ const AstrologerCard = ({ astrologer, isSelected }) => {
     >
       <div className="w-12 h-12 relative">
         <img
-          src="/api/placeholder/48/48"
+          src={astrologer.image}
           alt={astrologer.firstName}
           className="rounded-full bg-gray-200"
         />
