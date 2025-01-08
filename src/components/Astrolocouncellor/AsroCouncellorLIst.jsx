@@ -92,7 +92,7 @@ const AstrologerCard = ({ astrologer, isSelected }) => {
   );
 };
 
-const AstrologerListing = () => {
+const AstroCouncellorListing = () => {
   const [astroCouncellor, setAstroCouncellor] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -156,4 +156,4 @@ const AstrologerListing = () => {
   );
 };
 
-export default AstrologerListing;
+export default AstroCouncellorListing;

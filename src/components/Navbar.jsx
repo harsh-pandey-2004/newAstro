@@ -56,6 +56,16 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
+              to="/astro-page"
+              className={({ isActive }) =>
+                isActive ? "text-yellow-500 font-bold" : "hover:text-yellow-500"
+              }
+            >
+              Astrologer
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/book-pandit"
               className={({ isActive }) =>
                 isActive ? "text-yellow-500 font-bold" : "hover:text-yellow-500"
@@ -64,6 +74,17 @@ const Navbar = () => {
               Book Pandit
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/astrocouncelor-page"
+              className={({ isActive }) =>
+                isActive ? "text-yellow-500 font-bold" : "hover:text-yellow-500"
+              }
+            >
+              Astro Councellor
+            </NavLink>
+          </li>
+
           <li>
             <NavLink
               to="/book-pooja"
@@ -164,6 +185,21 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
+                  to="/astro-page"
+                  onClick={() => setMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `text-lg font-semibold block px-4 py-2 rounded-md transition-all ${
+                      isActive
+                        ? "bg-yellow-500 text-white shadow-md"
+                        : "text-black hover:bg-yellow-100 hover:shadow"
+                    }`
+                  }
+                >
+                  Astrologer
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
                   to="/book-pandit"
                   onClick={() => setMenuOpen(false)}
                   className={({ isActive }) =>
@@ -179,7 +215,7 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
-                  to="/book-pooja"
+                  to="/book-pandit"
                   onClick={() => setMenuOpen(false)}
                   className={({ isActive }) =>
                     `text-lg font-semibold block px-4 py-2 rounded-md transition-all ${
@@ -189,7 +225,22 @@ const Navbar = () => {
                     }`
                   }
                 >
-                  Book Pooja
+                  Book Pandit
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/astrocouncelor-page"
+                  onClick={() => setMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `text-lg font-semibold block px-4 py-2 rounded-md transition-all ${
+                      isActive
+                        ? "bg-yellow-500 text-white shadow-md"
+                        : "text-black hover:bg-yellow-100 hover:shadow"
+                    }`
+                  }
+                >
+                  AstroCouncellor
                 </NavLink>
               </li>
               <li>
@@ -238,7 +289,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </ul>
-            
+
             {/* Login Button (Mobile) */}
             <button
               onClick={handleLoginClick}
