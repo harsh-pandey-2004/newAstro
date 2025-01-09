@@ -1,7 +1,7 @@
 import React from "react";
 import watch from '../../assets/image/watchicon.png';
 import Credibility from '../../assets/image/credibilityicon.png';
-import Service from '../../assets/image/Serviceicon.png';
+import Service from '../../assets/image/serviceicon.png';
 
 const FeaturesSection = () => {
   return (

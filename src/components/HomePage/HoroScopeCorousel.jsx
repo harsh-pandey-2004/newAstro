@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Aries from "../../assets/image/Aries.png";
 import Aquarius from "../../assets/image/Aquarius.png";
-import Cancer from "../../assets/image/Cancer.png";
-import Capricorn from "../../assets/image/Capricorn.png";
+import Cancer from "../../assets/image/cancer.png";
+import Capricorn from "../../assets/image/capricorn.png";
 import Gemini from "../../assets/image/gemini.png";
 import leo from "../../assets/image/leo.png";
 import Libra from "../../assets/image/libra.png";
