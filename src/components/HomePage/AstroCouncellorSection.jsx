@@ -82,7 +82,9 @@ const AstroCouncellor = () => {
       {/* Content */}
       <div className="max-w-6xl mx-auto relative">
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-2xl font-bold">Our Counsellors</h2>
+          <h2 className="text-2xl sm:text-4xl font-bold">
+            Our AstroCounsellors
+          </h2>
           <button
             onClick={() => navigate("/astrocouncelor-page")}
             className="text-yellow-600 hover:text-yellow-700 border-2 border-orange-400 p-2 rounded-md"
