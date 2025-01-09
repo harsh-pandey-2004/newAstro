@@ -17,7 +17,7 @@ import Prasaad from "./Pages/Prasaad";
 function App() {
   return (
     <Router>
-      <div>
+      <div className="font-poppins">
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
