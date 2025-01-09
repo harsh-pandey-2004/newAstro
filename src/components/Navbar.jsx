@@ -22,7 +22,6 @@ const Navbar = () => {
   const isHomePage = location.pathname === "/";
 
   const handleLoginClick = () => {
-    // Trigger login functionality
     console.log("Login button clicked");
   };
 
@@ -35,14 +34,12 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex justify-between items-center px-6 py-3">
-        {/* Logo */}
         <div className="flex items-center space-x-2">
           <Link to="/">
             <img src={logo} alt="Astro Captain Logo" className="h-[50px]" />
           </Link>
         </div>
 
-        {/* Desktop Navigation Links */}
         <ul className="hidden md:flex space-x-6 items-center text-sm">
           <li>
             <NavLink
@@ -56,6 +53,16 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
+              to="/astro-page"
+              className={({ isActive }) =>
+                isActive ? "text-yellow-500 font-bold" : "hover:text-yellow-500"
+              }
+            >
+              Astrologer
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/book-pandit"
               className={({ isActive }) =>
                 isActive ? "text-yellow-500 font-bold" : "hover:text-yellow-500"
@@ -64,6 +71,17 @@ const Navbar = () => {
               Book Pandit
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/astrocouncelor-page"
+              className={({ isActive }) =>
+                isActive ? "text-yellow-500 font-bold" : "hover:text-yellow-500"
+              }
+            >
+              Astro Councellor
+            </NavLink>
+          </li>
+
           <li>
             <NavLink
               to="/book-pooja"
@@ -106,7 +124,6 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* Login Button (Desktop) */}
         <button
           onClick={handleLoginClick}
           className="text-sm px-4 py-2 rounded-md border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white transition-all hidden md:block"
@@ -114,20 +131,18 @@ const Navbar = () => {
           Login
         </button>
 
-        {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white"
+          className={`md:hidden ${
+            isScrolled || !isHomePage ? "text-black" : "text-white"
+          }`}
           onClick={() => setMenuOpen(!menuOpen)}
         >
           ☰
         </button>
 
-        {/* Mobile Navigation Links */}
         {menuOpen && (
           <div className="absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-yellow-400 via-white to-yellow-100 text-black flex flex-col p-6 z-50 shadow-lg md:hidden">
-            {/* Header Section with Logo and Close Icon */}
             <div className="flex justify-between items-center mb-6">
-              {/* Logo */}
               <Link to="/" onClick={() => setMenuOpen(false)}>
                 <img
                   src={logo}
@@ -136,7 +151,6 @@ const Navbar = () => {
                 />
               </Link>
 
-              {/* Close Button */}
               <button
                 onClick={() => setMenuOpen(false)}
                 className="bg-yellow-500 text-white p-3 rounded-full shadow-lg hover:bg-yellow-600 transition-all"
@@ -145,7 +159,6 @@ const Navbar = () => {
               </button>
             </div>
 
-            {/* Menu Items */}
             <ul className="space-y-4 flex-1">
               <li>
                 <NavLink
@@ -160,6 +173,21 @@ const Navbar = () => {
                   }
                 >
                   Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/astro-page"
+                  onClick={() => setMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `text-lg font-semibold block px-4 py-2 rounded-md transition-all ${
+                      isActive
+                        ? "bg-yellow-500 text-white shadow-md"
+                        : "text-black hover:bg-yellow-100 hover:shadow"
+                    }`
+                  }
+                >
+                  Astrologer
                 </NavLink>
               </li>
               <li>
@@ -179,7 +207,7 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
-                  to="/book-pooja"
+                  to="/book-pandit"
                   onClick={() => setMenuOpen(false)}
                   className={({ isActive }) =>
                     `text-lg font-semibold block px-4 py-2 rounded-md transition-all ${
@@ -189,7 +217,22 @@ const Navbar = () => {
                     }`
                   }
                 >
-                  Book Pooja
+                  Book Pandit
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/astrocouncelor-page"
+                  onClick={() => setMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `text-lg font-semibold block px-4 py-2 rounded-md transition-all ${
+                      isActive
+                        ? "bg-yellow-500 text-white shadow-md"
+                        : "text-black hover:bg-yellow-100 hover:shadow"
+                    }`
+                  }
+                >
+                  AstroCouncellor
                 </NavLink>
               </li>
               <li>
@@ -238,8 +281,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </ul>
-            
-            {/* Login Button (Mobile) */}
+
             <button
               onClick={handleLoginClick}
               className="text-sm px-4 py-2 rounded-md border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white transition-all"

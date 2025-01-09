@@ -44,7 +44,7 @@ const AstrologerCard = ({ astrologer, isSelected }) => {
     >
       <div className="w-12 h-12 relative">
         <img
-          src="/api/placeholder/48/48"
+          src={astrologer.image}
           alt={astrologer.name}
           className="rounded-full bg-gray-200"
         />
@@ -92,7 +92,7 @@ const AstrologerCard = ({ astrologer, isSelected }) => {
   );
 };
 
-const AstrologerListing = () => {
+const AstroCouncellorListing = () => {
   const [astroCouncellor, setAstroCouncellor] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -156,4 +156,4 @@ const AstrologerListing = () => {
   );
 };
 
-export default AstrologerListing;
+export default AstroCouncellorListing;

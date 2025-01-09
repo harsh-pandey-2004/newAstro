@@ -4,10 +4,17 @@ import axios from "axios";
 import sun from "../../assets/image/Sunimg.png"; // Import the sun image
 import { useNavigate } from "react-router-dom";
 
-const AstrologerCard = ({ firstName, languages, experience, Skills }) => (
+const AstrologerCard = ({
+  image,
+  firstName,
+  languages,
+  experience,
+  Skills,
+}) => (
   <div className="bg-white p-6 rounded-lg shadow-lg text-center relative">
     <div className="w-24 h-24 mx-auto mb-4 relative">
       <img
+        src={image}
         alt={firstName}
         className="rounded-full w-full h-full object-cover border-4 border-yellow-400"
       />
@@ -35,6 +42,7 @@ const Astrologers = () => {
         const response = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}/api/astrologer-data`
         );
+        console.log(response.data.Astrodata);
         setAstrologer(response.data.Astrodata);
       } catch (error) {
         console.error("Error fetching astrologer data:", error);
@@ -52,15 +60,20 @@ const Astrologers = () => {
     return 1;
   };
 
+  const getTotalSections = () => {
+    const visibleSlides = getVisibleSlides();
+    return Math.ceil(astrologer.length / visibleSlides);
+  };
+
   const handleDotClick = (dotIndex) => {
-    const astrologersPerSection = Math.ceil(astrologer.length / 3);
-    const newIndex = dotIndex * astrologersPerSection;
-    setCurrentIndex(Math.min(newIndex, astrologer.length - getVisibleSlides()));
+    const visibleSlides = getVisibleSlides();
+    const newIndex = dotIndex * visibleSlides;
+    setCurrentIndex(Math.min(newIndex, astrologer.length - visibleSlides));
   };
 
   const getCurrentDot = () => {
-    const astrologersPerSection = Math.ceil(astrologer.length / 3);
-    return Math.floor(currentIndex / astrologersPerSection);
+    const visibleSlides = getVisibleSlides();
+    return Math.floor(currentIndex / visibleSlides);
   };
 
   const nextSlide = () => {
@@ -74,18 +87,18 @@ const Astrologers = () => {
 
   return (
     <div
-      className="relative py-12 px-4 "
+      className="relative py-20 px-4"
       style={{
         backgroundImage: `url(${sun})`, // Set the background image to the sun image
         backgroundPosition: "center", // Center the image
         backgroundRepeat: "no-repeat", // Prevent the image from repeating
-        backgroundSize: "700px 500px", // Set a specific size for the background image (you can adjust the size here)
+        backgroundSize: "500px 500px", // Set a specific size for the background image (you can adjust the size here)
       }}
     >
       {/* Content */}
       <div className="max-w-6xl mx-auto relative">
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-2xl font-bold text-black">Our Astrologers</h2>
+          <h2 className="text-2xl sm:text-4xl font-bold">Our Astrologers</h2>
           <button
             onClick={() => {
               navigate("/astro-page");
@@ -111,6 +124,7 @@ const Astrologers = () => {
                 className="flex-shrink-0 w-full md:w-1/2 lg:w-1/4 px-4"
               >
                 <AstrologerCard
+                  image={astro.image}
                   firstName={astro.firstName}
                   languages={astro.languages}
                   experience={astro.experience}
@@ -123,7 +137,7 @@ const Astrologers = () => {
 
         {/* Three Dot Navigation */}
         <div className="flex justify-center items-center mt-8 space-x-2">
-          {[0, 1, 2].map((dotIndex) => (
+          {Array.from({ length: getTotalSections() }).map((_, dotIndex) => (
             <button
               key={dotIndex}
               onClick={() => handleDotClick(dotIndex)}

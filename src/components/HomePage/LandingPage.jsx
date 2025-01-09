@@ -43,7 +43,7 @@ const LandingPage = () => {
 
           {/* Navigation Dots */}
           <div className="absolute bottom-12 flex space-x-2">
-            {[0, 1, 2, 3].map((index) => (
+            {[0].map((index) => (
               <button
                 key={index}
                 className={`h-2 w-2 rounded-full transition-all duration-300 ${
