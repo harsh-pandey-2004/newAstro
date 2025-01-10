@@ -2,6 +2,7 @@ import React from 'react';
 import smile from '../../assets/image/smileicon.png';
 import panditgroup from '../../assets/image/panditgroupicon.png';
 import bookingicon from '../../assets/image/bookingicon.png';
+import bgImage from '../../assets/image/Rectangle7.png';
 
 const ServiceStats = () => {
   const stats = [
@@ -23,7 +24,14 @@ const ServiceStats = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-yellow-400 to-orange-500 py-12">
+    <div
+      className="py-12"
+      style={{
+        backgroundImage: `url(${bgImage})`, // Set the background image
+        backgroundSize: 'cover', // Ensure the image covers the entire div
+        backgroundPosition: 'center', // Center the background image
+      }}
+    >
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {stats.map((stat, index) => (

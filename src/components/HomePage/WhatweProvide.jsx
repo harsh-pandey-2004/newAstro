@@ -2,11 +2,16 @@ import React from "react";
 import watch from "../../assets/image/watchicon.png";
 import Credibility from "../../assets/image/credibilityicon.png";
 import Service from "../../assets/image/serviceicon.png";
+import bgimage from '../../assets/image/Rectangle8.png';
 
 const FeaturesSection = () => {
   return (
-    <div className="bg-gradient-to-r from-[#FFA600]  to-[#FBFF00] py-16">
-      <div className="text-center mb-12 px-4">
+<div
+      className="py-16 bg-cover bg-center"
+      style={{
+        backgroundImage: `url(${bgimage})`, // Set the background image
+      }}
+    >      <div className="text-center mb-12 px-4">
         <h2 className="text-3xl font-bold text-black mb-4">
           Beyond Predictions: Your Holistic Path to Empowerment
         </h2>
