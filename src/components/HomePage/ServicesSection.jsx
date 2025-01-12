@@ -3,7 +3,9 @@ import Home4 from "../../assets/image/home4.png";
 import FortuneTeller from "../../assets/image/fortunetellerImage.png";
 import vastu from "../../assets/image/vastuImage.png";
 import prasad from "../../assets/image/prasad.png";
+import bgImage from '../../assets/image/Rectangle10.png'; // Import the background image
 import planeticon from "../../assets/image/planeticon.png";
+
 const AstrologyServices = () => {
   const services = [
     {
@@ -37,7 +39,14 @@ const AstrologyServices = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#FFD700] to-[#FFA600] py-12 px-4 md:px-8 relative ">
+    <div
+      className="min-h-screen py-12 px-4 md:px-8 relative"
+      style={{
+        backgroundImage: `url(${bgImage})`, // Set the background image here
+        backgroundSize: 'cover', // Ensures the image covers the full div
+        backgroundPosition: 'center', // Ensures the image is centered
+      }}
+    >
       {/* Header Section */}
       <div className="max-w-6xl mx-auto mb-12 text-center">
         <div className="flex items-center justify-center gap-4 mb-4">
