@@ -21,7 +21,9 @@ const AstrologerCard = ({
     </div>
     <h3 className="font-bold text-lg mb-1">{firstName}</h3>
     <p className="text-gray-600 text-sm mb-1">{languages}</p>
-    <p className="text-yellow-500 text-sm mb-1">{experience}</p>
+    <p className="text-yellow-500 text-sm mb-1">
+      Experience: {experience} years
+    </p>
     <p className="text-gray-600 text-sm mb-2">{Skills}</p>
     <div className="flex justify-center gap-1">
       {[1, 2, 3, 4, 5].map((star) => (
