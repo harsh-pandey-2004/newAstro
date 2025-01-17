@@ -13,6 +13,8 @@ import AstroCouncellor from "./components/HomePage/AstroCouncellorSection";
 import AstrologerCouncellorPage from "./Pages/AstroCouncellor";
 import AstrologerProfile from "./Pages/IndividualProfile";
 import Prasaad from "./Pages/Prasaad";
+import AvailablePandits from "./components/BookaPandit/AvailablePandits";
+import TempleDetails from "./components/BookPooja/TempleDetails";
 
 function App() {
   return (
@@ -22,7 +24,9 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/book-pandit" element={<BookPandit />} />
+          <Route path="/available-pandits" element={<AvailablePandits />} />
           <Route path="/book-pooja" element={<BookPooja />} />
+          <Route path="/temple-details" element={<TempleDetails />} />
           <Route path="/astro-page" element={<AstrologerPage />} />
           <Route
             path="/astrocouncelor-page"

@@ -11,7 +11,7 @@ const AstrologerProfile = () => {
       <div className="flex flex-col md:flex-row items-center  md:space-x-8">
         {/* Profile Image */}
         <img
-          src="/path/to/profile.jpg"
+          src={astrologer.image}
           alt="Astrologer"
           className="w-36 h-36 rounded-full shadow-lg"
         />

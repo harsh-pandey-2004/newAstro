@@ -3,6 +3,7 @@ import { Star } from "lucide-react";
 import axios from "axios";
 import sun from "../../assets/image/Sunimg.png"; // Import the sun image
 import { useNavigate } from "react-router-dom";
+import vector from "../../assets/vector.png";
 
 const AstrologerCard = ({
   image,
@@ -12,23 +13,47 @@ const AstrologerCard = ({
   Skills,
 }) => (
   <div className="bg-white p-6 rounded-lg shadow-lg text-center relative">
-    <div className="w-24 h-24 mx-auto mb-4 relative">
+    {/* <div className="w-24 h-24 mx-auto mb-4 relative">
+      <img src={vector} />
       <img
         src={image}
         alt={firstName}
         className="rounded-full w-full h-full object-cover border-4 border-yellow-400"
       />
+    </div> */}
+    <div className="w-24 h-24 mx-auto mb-4 relative">
+      <img
+        src={vector}
+        className="absolute inset-0 w-full h-full object-contain z-0"
+        alt="vector"
+      />
+
+      <img
+        src={image}
+        alt={firstName}
+        className="rounded-full w-20 h-20 object-cover border-4 border-yellow-400 absolute inset-0 m-auto z-10"
+      />
     </div>
+
     <h3 className="font-bold text-lg mb-1">{firstName}</h3>
-    <p className="text-gray-600 text-sm mb-1">{languages}</p>
-    <p className="text-yellow-500 text-sm mb-1">
-      Experience: {experience} years
-    </p>
-    <p className="text-gray-600 text-sm mb-2">{Skills}</p>
-    <div className="flex justify-center gap-1">
-      {[1, 2, 3, 4, 5].map((star) => (
-        <Star key={star} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-      ))}
+    <div className="text-left">
+      <p className="text-yellow-500 text-sm mb-1">
+        Language: <span className="text-gray-600">{languages}</span>
+      </p>
+      <p className="text-yellow-500 text-sm mb-1">
+        Experience: <span className="text-gray-600">{experience} years</span>
+      </p>
+      <p className="text-yellow-500 text-sm mb-2">
+        Expertise: <span className="text-gray-600">{Skills}</span>
+      </p>
+      <div className="flex justify-center gap-1 mt-4">
+        {[1, 2, 3, 4, 5].map((star) => (
+          <Star
+            key={star}
+            className="w-4 h-4 fill-yellow-400 text-yellow-400"
+          />
+        ))}
+      </div>
     </div>
   </div>
 );
