@@ -1,12 +1,17 @@
 import React from "react";
-import watch from '../../assets/image/watchicon.png';
-import Credibility from '../../assets/image/credibilityicon.png';
-import Service from '../../assets/image/serviceicon.png';
+import watch from "../../assets/image/watchicon.png";
+import Credibility from "../../assets/image/credibilityicon.png";
+import Service from "../../assets/image/serviceicon.png";
+import bgimage from '../../assets/image/Rectangle8.png';
 
 const FeaturesSection = () => {
   return (
-    <div className="bg-gradient-to-r from-[#FFA600]  to-[#FBFF00] py-16">
-      <div className="text-center mb-12 px-4">
+<div
+      className="py-16 bg-cover bg-center"
+      style={{
+        backgroundImage: `url(${bgimage})`, // Set the background image
+      }}
+    >      <div className="text-center mb-12 px-4">
         <h2 className="text-3xl font-bold text-black mb-4">
           Beyond Predictions: Your Holistic Path to Empowerment
         </h2>
@@ -16,14 +21,17 @@ const FeaturesSection = () => {
           integrated method combines ancient wisdom with modern psychological
           insights to help you transform your life.
         </p>
-        
       </div>
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+      <div className=" mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-10">
         {/* Convenience Card */}
         <div className="bg-white rounded-lg shadow-lg p-6 text-center">
           <div className="flex justify-center mb-4">
             {/* Use the imported 'watch' image here and center it */}
-            <img src={watch} alt="watchimage" className="w-16 h-16 object-cover" />
+            <img
+              src={watch}
+              alt="watchimage"
+              className="w-16 h-16 object-cover"
+            />
           </div>
           <h3 className="text-xl font-semibold mb-4">Convenience</h3>
           <p className="text-gray-700">
@@ -35,9 +43,13 @@ const FeaturesSection = () => {
 
         {/* Credibility Card */}
         <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-        <div className="flex justify-center mb-4">
+          <div className="flex justify-center mb-4">
             {/* Use the imported 'watch' image here and center it */}
-            <img src={Credibility} alt="watchimage" className="w-16 h-16 object-cover" />
+            <img
+              src={Credibility}
+              alt="watchimage"
+              className="w-16 h-16 object-cover"
+            />
           </div>
           <h3 className="text-xl font-semibold mb-4">Credibility</h3>
           <p className="text-gray-700">
@@ -49,9 +61,13 @@ const FeaturesSection = () => {
 
         {/* Comprehensive Services Card */}
         <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-        <div className="flex justify-center mb-4">
+          <div className="flex justify-center mb-4">
             {/* Use the imported 'watch' image here and center it */}
-            <img src={Service} alt="watchimage" className="w-16 h-16 object-cover" />
+            <img
+              src={Service}
+              alt="watchimage"
+              className="w-16 h-16 object-cover"
+            />
           </div>
           <h3 className="text-xl font-semibold mb-4">Comprehensive Services</h3>
           <p className="text-gray-700">

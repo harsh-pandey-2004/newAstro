@@ -19,7 +19,7 @@ import TempleDetails from "./components/BookPooja/TempleDetails";
 function App() {
   return (
     <Router>
-      <div>
+      <div className="font-poppins">
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
