@@ -71,18 +71,21 @@ const PanditsSlider = () => {
             }}
           >
             {pandits.map((pandit, index) => (
-              <div key={index} className="flex-shrink-0 w-1/2 md:w-1/3 lg:w-1/4 px-2">
+              <div
+                key={index}
+                className="flex-shrink-0 w-1/2 md:w-1/3 lg:w-1/4 px-2"
+              >
                 <div className="relative rounded-2xl overflow-hidden bg-white shadow-lg">
                   <img
                     src={pandit.image}
                     alt={pandit.firstName}
                     className="w-full aspect-square object-cover"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
-                    <p className="text-white text-center font-medium">
-                      {pandit.firstName}
-                    </p>
-                  </div>
+                </div>
+                <div className=" p-4">
+                  <p className="text-black text-center font-medium">
+                    {pandit.firstName}
+                  </p>
                 </div>
               </div>
             ))}

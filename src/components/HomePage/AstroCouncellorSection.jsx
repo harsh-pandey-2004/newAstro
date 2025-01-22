@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Star } from "lucide-react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import vector from "../../assets/vector.png";
+import vector from "../../assets/image circle (1).png";
 
 const AstrologerCard = ({
   image,
@@ -12,7 +12,7 @@ const AstrologerCard = ({
   Skills,
 }) => (
   <div className="bg-white p-6 rounded-lg shadow-lg text-center relative">
-    <div className="w-24 h-24 mx-auto mb-4 relative">
+    <div className="w-32 h-32 mx-auto mb-4 relative">
       <img
         src={vector}
         className="absolute inset-0 w-full h-full object-contain z-0"
@@ -22,7 +22,7 @@ const AstrologerCard = ({
       <img
         src={image}
         alt={firstName}
-        className="rounded-full w-20 h-20 object-cover border-4 border-yellow-400 absolute inset-0 m-auto z-10"
+        className="rounded-full w-20 h-20 object-cover  absolute inset-0 m-auto z-10"
       />
     </div>
     <h3 className="font-bold text-lg mb-1">{firstName}</h3>
@@ -34,9 +34,9 @@ const AstrologerCard = ({
         Experience: <span className="text-gray-600">{experience}+ years</span>
       </p>
       <p className="text-yellow-500 text-sm mb-2">
-        Expertise: <span className="text-gray-600">{Skills}</span>
+        Expertise: <span className="text-gray-600">{Skills.join(", ")}</span>
       </p>
-      <div className="flex justify-center gap-1">
+      <div className="flex justify-center gap-1 mt-5">
         {[1, 2, 3, 4, 5].map((star) => (
           <Star
             key={star}
@@ -120,7 +120,7 @@ const AstroCouncellor = () => {
                 firstName={astro.firstName}
                 languages={astro.languages}
                 experience={astro.experience}
-                Skills={astro.skills}
+                Skills={astro.Skills}
               />
             ))}
           </div>
